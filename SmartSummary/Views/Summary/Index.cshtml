@@ -1,0 +1,43 @@
+﻿@model SmartSummary.Models.SummaryViewModel
+@{
+    ViewData["Title"] = "Akıllı Metin Özeti";
+}
+
+<h2 class="mt-3">Akıllı Metin Özeti</h2>
+
+<form asp-action="Index" method="post" class="mt-3">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label class="form-label">Metninizi yapıştırın</label>
+        <textarea class="form-control" rows="8" asp-for="InputText" placeholder="Uzun metni buraya yapıştırın..."></textarea>
+        <small class="text-muted">İpucu: 3–5 cümle genelde ideal.</small>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cümle sayısı</label>
+        <input class="form-control" asp-for="SentenceCount" type="number" min="1" max="10" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Çıktı dili (opsiyonel)</label>
+        <input class="form-control" asp-for="Language" placeholder="Örn: Turkish, English (boş bırak: otomatik)" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Özetle</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model?.Error))
+{
+    <div class="alert alert-danger mt-3">@Model.Error</div>
+}
+
+@if (!string.IsNullOrEmpty(Model?.OutputSummary))
+{
+    <div class="card mt-4">
+        <div class="card-header">Özet</div>
+        <div class="card-body">
+            <p>@Model.OutputSummary</p>
+        </div>
+    </div>
+}
