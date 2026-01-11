@@ -42,7 +42,7 @@ namespace SmartSummary.Services
                 temperature = 0.2
             };
 
-            using var req = new HttpRequestMessage(HttpMethod.Post, "v1/chat/completions")
+            using var req = new HttpRequestMessage(HttpMethod.Post, "chat/completions")
             {
                 Content = JsonContent.Create(body)
             };
