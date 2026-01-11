@@ -4,7 +4,7 @@ A simple web application that summarizes user-provided text using the **OpenAI A
 Built with **ASP.NET Core MVC** (C#) and a clean service-based architecture.
 
 ## 🚀 Live Demo
-- Demo: (coming soon)
+- Demo: https://smartsummary-0rca.onrender.com
 
 ## ✨ Features
 - Paste any text and get a concise summary
